@@ -2,4 +2,6 @@
 Second year M2R Project <br />
 COLLABORATORS: <br />
 Aishy Chidambaram, Henry Palasciano, Chengyu Ye, Fan Grayson <br />
-INSTRUCTIONS:
+INSTRUCTIONS: <br />
+WITH THANKS TO: <br />
+Dr. David Ham, and Imperial College London
