@@ -2,3 +2,5 @@ $ cd
 $ cd Desktop
 $ git config --global user.name "henrypalasciano"
 $ git config --global user.email "henry.palasciano17@imperial.ac.uk"
+$ git config --global user.name "chengyuye"
+$ git config --global user.email "chengyu.ye17@imperial.ac.uk"
