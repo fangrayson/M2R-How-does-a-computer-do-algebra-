@@ -1,7 +1,7 @@
 #Example of a test
 #Go onto 
-def func(x):
-    return  x+1
+def actual_unary_minus(x):
+    return  -x
 
-def test_func():
-    assert func(3) == 5
+def test_func(x):
+    assert symbolic.UnaryMinus(x) == actual_unary_minus(x)
