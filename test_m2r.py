@@ -1,0 +1,7 @@
+#Example of a test
+#Go onto 
+def func(x):
+    return  x+1
+
+def test_func():
+    assert func(3) == 5
