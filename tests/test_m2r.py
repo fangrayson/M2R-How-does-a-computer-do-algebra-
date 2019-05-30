@@ -9,6 +9,8 @@
 #    assert symbolic.UnaryMinus(x) == actual_unary_minus(x)
 #Keep getting the error "No module named 'symbolic'"
 import pytest
+# Decided to copy and paste the classes and adjusted a bit,
+# becuase the package needs to be in the same directory or something?
 
 class Node: 
     pass
