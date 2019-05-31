@@ -15,16 +15,7 @@ class Node:
     
     
 #class Operator(Node):
-    
-'''class UnitaryOperator(Node):
-    def __init__(self, a):
-        self.operands = (a)
-        
-    def __str__(self):
-        return str(self.operands[0])
 
-class UnaryMinus(UnitaryOperator):
-    symbol = "-"'''
 
     
 class BinaryOperator(Node):
@@ -33,7 +24,7 @@ class BinaryOperator(Node):
         
     def __str__(self):
         return self.parenthesize(self.operands[0]) + " " + self.symbol\
-    + " " + self.parethesize(self.operands[1])
+    + " " + self.parenthesize(self.operands[1])
     
         
         
@@ -54,11 +45,20 @@ class Div(BinaryOperator):
     priority=4
     
 class Pow(BinaryOperator):
-    symbol = "^"  # potentially use "**" here
+    symbol = "**" 
     priority=5    
     
     
-    
+class UnitaryOperator(Node):
+    def __init__(self, a):
+        self.operands = (a)
+        
+    def __str__(self):
+        return self.symbol+" "+str(self.operands[0])
+
+class UnaryMinus(UnitaryOperator):
+    symbol = "-"
+    priority=2
     
     
 

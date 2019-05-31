@@ -28,3 +28,6 @@ def __div__(self, other):
     
 def __pow__(self, other):
     return Pow(self, other)  
+
+def __unaryminus__(self):
+    return UnaryMinus(self)
