@@ -7,8 +7,13 @@ Created on Thu May 30 14:38:27 2019
 """
 
 class Node: 
-    pass
-     
+    def parenthesize(self,other):
+        if self.priority>other.priority:
+            return '('+str(other)+')'
+        else:
+            return str(other)
+    
+    
 #class Operator(Node):
     
 '''class UnitaryOperator(Node):
@@ -27,25 +32,30 @@ class BinaryOperator(Node):
         self.operands = (a,b)
         
     def __str__(self):
-        return str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
+        return self.parenthesize(self.operands[0]) + " " + self.symbol\
+    + " " + self.parethesize(self.operands[1])
     
         
         
 class Add(BinaryOperator):
     symbol = "+"  
+    priority=1
     
 class Sub(BinaryOperator):
     symbol = "-"
-        
+    priority=2
+    
 class Mul(BinaryOperator):
     symbol = "*"
-  
+    priority=3
+    
 class Div(BinaryOperator):
     symbol = "/"
-  
+    priority=4
+    
 class Pow(BinaryOperator):
     symbol = "^"  # potentially use "**" here
-        
+    priority=5    
     
     
     
