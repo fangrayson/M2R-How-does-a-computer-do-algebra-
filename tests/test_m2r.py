@@ -1,17 +1,9 @@
-#Example of a test
-#Go onto 
-#import symbolic.py
-#Seems to be an indentation error in test_m2r.py
-#def actual_unary_minus(x):
-#    return  -x
-
-#def test_func(x):
-#    assert symbolic.UnaryMinus(x) == actual_unary_minus(x)
-#Keep getting the error "No module named 'symbolic'"
 import pytest
-# Decided to copy and paste the classes and adjusted a bit,
-# becuase the package needs to be in the same directory or something?
+#import symbolic
+import sympy as sy
+x = sy.Symbol('x')
 
+# IN FUTURE: THIS WILL ALL BE PASSED DOWN FROM THE symbolic.py PACKAGE
 class Node: 
     pass
      
@@ -28,15 +20,9 @@ class UnitaryOperator(Operator):
 class UnaryMinus(UnitaryOperator):
     symbol = "-"
        
+#THIS WILL BE THE ACTUAL TEST
 def actual_unary_minus(x):
-    return  str(-x)
+    return  -x
 
 def test_func():
-    x =  1
     assert UnaryMinus(x) == actual_unary_minus(x)
-#Keep getting the error "No module named 'symbolic'"
-    
-#FIRST ERROR: may need to add "pass" or an empty indentation block
-# don't think can have an empty class cus it keeps going weird
-    
-#SECOND ERROR: "fixture x not found"
