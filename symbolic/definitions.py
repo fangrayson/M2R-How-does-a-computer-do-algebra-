@@ -6,8 +6,8 @@ Created on Thu May 30 20:35:38 2019
 @author: aishy
 """
 
-import symbolic
-from sympy import *
+import node
+from sympy import Symbol
 
 x = Symbol('x')
 y = Symbol('y')
