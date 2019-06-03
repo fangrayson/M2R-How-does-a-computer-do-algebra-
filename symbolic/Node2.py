@@ -1,31 +1,32 @@
 
 class Node: 
     
+    def parenthesize(self,other):
+        if self.priority > other.priority:
+            return '(' + str(other.name)+ ')'
+        else:
+            return str(other.name)
+        
     def __add__(self, other):
-        return Add(self,other)
+        return Add(self.name,other.name)
     def __radd__(self,other):
-        return Add(other,self)
+        return Add(other.name,self.name)
     
     def __sub__(self, other):
-        return Sub(self, other)
+        return Sub(self.name, other.name)
     
     def __mul__(self, other):
-        return Mul(self, other)
+        return Mul(self.name, other.name)
     
-    def __div__(self, other):
-        return Div(self, other) 
+    def __trudiv__(self, other):
+        return Div(self.name, other.name) 
     
     def __pow__(self, other):
-        return Pow(self, other)
+        return Pow(self.name, other.name)
     
     def __neg__(self):
-        return Neg(self)
+        return Neg(self.name)
 
-""" def parenthesize(self,other):
-        if self.priority>other.priority:
-            return '('+str(other)+')'
-        else:
-            return str(other)"""
     
     
 
@@ -38,7 +39,9 @@ class BinaryOperator(Node):
         return str(self.operands[0]) + " " + self.symbol\
     + " " + str(self.operands[1])
     
-#class Operator(Node):
+    
+    
+
     
 class UnitaryOperator(Node):
     def __init__(self, a):
@@ -49,6 +52,7 @@ class UnitaryOperator(Node):
 
 class Neg(UnitaryOperator):
     symbol = "-"
+    priority = 3
     
     
 class Symbol(Node):
@@ -58,27 +62,47 @@ class Symbol(Node):
         
 class Add(BinaryOperator):
     symbol = '+'
+    priority = 1
+    def __init__(self, a, b):
+        self.operands = (a,b)
+        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
 
                     
 class Sub(BinaryOperator):
     symbol = "-"
+    priority = 2
+    def __init__(self, a, b):
+        self.operands = (a,b)
+        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
         
 class Mul(BinaryOperator):
     symbol = "*"
+    priority = 4
+    def __init__(self, a, b):
+        self.operands = (a,b)
+        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
         
 class Div(BinaryOperator):
     symbol = "/"
+    priority = 5
+    def __init__(self, a, b):
+        self.operands = (a,b)
+        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
     
 class Pow(BinaryOperator):
-    symbol = "**"  
+    symbol = "**" 
+    priority = 6
+    def __init__(self, a, b):
+        self.operands = (a,b)
+        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
     
    
-x = Symbol('x').name
-y = Symbol('y').name
-z = Symbol('z').name    
+x = Symbol('x')
+y = Symbol('y')
+z = Symbol('z')
 
     
