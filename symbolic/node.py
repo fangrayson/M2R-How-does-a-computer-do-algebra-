@@ -41,8 +41,8 @@ class BinaryOperator(Node):
         self.operands = (a,b)
     
     def __str__(self):
-        return self.parenthesize(self.operands[0]) + " " + self.symbol\
-    + " " + self.parenthesize(self.operands[1])
+        return str(self.operands[0]) + " " + self.symbol\
+    + " " + str(self.operands[1])
 
     
 class UnitaryOperator(Node):
