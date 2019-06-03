@@ -74,13 +74,17 @@ class Pow(BinaryOperator):
     
 x = Symbol('x').name
 y = Symbol('y').name
-z = Symbol('z').name    
+z = Symbol('z').name
 
+def test_symbol_1(): # testing the Symbol class works
+    assert x == 'x'
 def actual_addition(a, b):
     if (type(a) == str) or (type(b) == str):
         return a + " + " + b
     return a + b
-def test_addition():
+def test_addition_1(): #testing that simple addition works
     assert x + y == actual_addition(x, y)
+def test_addition_2(): #testing that addition is symmetric
+    assert x + y == actual_addition(y, x)
 
     
