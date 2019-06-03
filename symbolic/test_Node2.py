@@ -76,5 +76,11 @@ x = Symbol('x').name
 y = Symbol('y').name
 z = Symbol('z').name    
 
+def actual_addition(a, b):
+    if (type(a) == str) or (type(b) == str):
+        return a + " + " + b
+    return a + b
+def test_addition():
+    assert x + y == actual_addition(x, y)
 
     
