@@ -8,16 +8,12 @@ Created on Mon Jun  3 14:00:17 2019
 
 class Node: 
     
-<<<<<<< HEAD
-    
-=======
     def parenthesize(self,other):
         if self.priority > other.priority:
             return '(' + str(other.name)+ ')'
         else:
             return str(other.name)
->>>>>>> b6ac402033133b14c7317ab4c396346091143139
-        
+
     def __add__(self, other):
         return Add(self.name,other.name)
     def __radd__(self,other):
@@ -28,12 +24,8 @@ class Node:
     
     def __mul__(self, other):
         return Mul(self.name, other.name)
-    
-<<<<<<< HEAD
+
     def __truediv__(self, other):
-=======
-    def __trudiv__(self, other):
->>>>>>> b6ac402033133b14c7317ab4c396346091143139
         return Div(self.name, other.name) 
     
     def __pow__(self, other):
@@ -49,20 +41,8 @@ class BinaryOperator(Node):
         self.operands = (a,b)
     
     def __str__(self):
-        return str(self.operands[0]) + " " + self.symbol\
-    + " " + str(self.operands[1])
-    
-<<<<<<< HEAD
-    def parenthesize(self,other):
-        if self.priority > other.priority:
-            return '(' + str(other.name)+ ')'
-        else:
-            return str(other.name)
-    
-=======
->>>>>>> b6ac402033133b14c7317ab4c396346091143139
-    
-    
+        return self.parenthesize(self.operands[0]) + " " + self.symbol\
+    + " " + self.parenthesize(self.operands[1])
 
     
 class UnitaryOperator(Node):
@@ -122,7 +102,7 @@ class Pow(BinaryOperator):
         self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
     
-   
+
 x = Symbol('x')
 y = Symbol('y')
 z = Symbol('z')
