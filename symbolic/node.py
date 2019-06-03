@@ -15,9 +15,13 @@ class Node:
             return str(other.name)
 
     def __add__(self, other):
+        if type(other) == int or type(other) == float:
+            return Add(self.name,other)
         return Add(self.name,other.name)
     def __radd__(self,other):
-        return Add(other.name,self.name)
+        if type(other) == int or type(other) == float:
+            return Add(other, self.name)
+        return Add(self.name,other.name)
     
     def __sub__(self, other):
         return Sub(self.name, other.name)
