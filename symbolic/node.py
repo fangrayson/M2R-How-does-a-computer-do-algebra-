@@ -34,8 +34,6 @@ class Node:
     def __neg__(self):
         return Neg(self.name)
 
-    
-    
 
     
 class BinaryOperator(Node):
