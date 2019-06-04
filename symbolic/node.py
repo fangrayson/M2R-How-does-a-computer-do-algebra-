@@ -73,6 +73,7 @@ class Node:
 class BinaryOperator(Node):
     def __init__(self, a, b):
         self.operands = (a,b)
+        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
     def __str__(self):
         return str(self.operands[0]) + " " + self.symbol\
@@ -99,41 +100,26 @@ class Symbol(Node):
 class Add(BinaryOperator):
     symbol = '+'
     priority = 1
-    def __init__(self, a, b):
-        self.operands = (a,b)
-        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
-
+    
                     
 class Sub(BinaryOperator):
     symbol = "-"
     priority = 2
-    def __init__(self, a, b):
-        self.operands = (a,b)
-        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
         
 class Mul(BinaryOperator):
     symbol = "*"
     priority = 4
-    def __init__(self, a, b):
-        self.operands = (a,b)
-        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
         
 class Div(BinaryOperator):
     symbol = "/"
     priority = 5
-    def __init__(self, a, b):
-        self.operands = (a,b)
-        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
     
 class Pow(BinaryOperator):
     symbol = "**" 
     priority = 6
-    def __init__(self, a, b):
-        self.operands = (a,b)
-        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
     
     
 
