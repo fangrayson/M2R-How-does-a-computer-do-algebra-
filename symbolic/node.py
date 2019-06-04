@@ -68,11 +68,12 @@ class Node:
 class BinaryOperator(Node):
     def __init__(self, a, b):
         self.operands = (a,b)
-        self.name = str(self.operands[0]) + " " + self.symbol + " " + str(self.operands[1])
+        self.name = str(self.operands[0]) + " " + self.symbol\
+        + " " + str(self.operands[1])
     
     def __str__(self):
-        return str(self.operands[0]) + " " + self.symbol\
-    + " " + str(self.operands[1])
+        return self.parenthesize(self.operands[0]) + " " + self.symbol\
+    + " " + self.parenthesize(self.operands[1])
 
     
 class UnitaryOperator(Node):
@@ -90,7 +91,7 @@ class Neg(UnitaryOperator):
 class Symbol(Node):
     def __init__(self, name):
         self.name = name
-        
+    priority = 7    
         
 class Add(BinaryOperator):
     symbol = '+'
