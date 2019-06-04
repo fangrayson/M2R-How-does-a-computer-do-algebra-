@@ -84,12 +84,13 @@ class BinaryOperator(Node):
 
     
 class UnaryOperator(Node):
-    def __init__(self, a):
-        self.operands = (a)
-        self.name = self.symbol+self.parenthesize(self.operands[0])
+    def __init__(self, c):
+        self.operands = c
+        self.name = self.symbol+self.parenthesize(self.operands)
         
     def __str__(self):
-        return self.symbol+self.parenthesize(self.operands[0])
+        return self.symbol+self.parenthesize(self.operands)
+    
 
 class Neg(UnaryOperator):
     symbol = "-"
