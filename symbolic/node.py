@@ -68,8 +68,8 @@ class Node:
 class BinaryOperator(Node):
     def __init__(self, a, b):
         self.operands = (a,b)
-        self.name = str(self.operands[0]) + " " + self.symbol\
-        + " " + str(self.operands[1])
+        self.name = self.parenthesize(self.operands[0]) + " " + self.symbol\
+        + " " + self.parenthesize(self.operands[1])
     
     def __str__(self):
         return self.parenthesize(self.operands[0]) + " " + self.symbol\
