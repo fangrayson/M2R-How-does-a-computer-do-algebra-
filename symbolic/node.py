@@ -5,7 +5,7 @@ Created on Mon Jun  3 14:00:17 2019
 
 @author: aishy
 """
-from numbers import Number
+from numbers import Number 
 
 
 class Node: 
