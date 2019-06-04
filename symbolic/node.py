@@ -20,6 +20,7 @@ class Node:
         if isinstance(other,Number) == True:
             other=Number(other)
         return Add(self,other)
+    
     def __radd__(self,other):
         if isinstance(other,Number) == True:
             other=Number(other)
@@ -29,6 +30,7 @@ class Node:
         if isinstance(other,Number) == True:
             other=Number(other)
         return Sub(self, other)
+    
     def __rsub__(self, other):
         if isinstance(other,Number) == True:
             other=Number(other)
@@ -38,6 +40,7 @@ class Node:
         if isinstance(other,Number) == True:
             other=Number(other)
         return Mul(self, other)
+    
     def __rmul__(self, other):
         if isinstance(other,Number) == True:
             other=Number(other)
@@ -47,6 +50,7 @@ class Node:
         if isinstance(other,Number) == True:
             other=Number(other)
         return Div(self, other) 
+    
     def __rtruediv__(self, other):
         if isinstance(other,Number) == True:
             other=Number(other)
@@ -56,6 +60,7 @@ class Node:
         if isinstance(other,Number) == True:
             other=Number(other)
         return Pow(self, other)
+    
     def __rpow__(self, other):
         if isinstance(other,Number) == True:
             other=Number(other)
