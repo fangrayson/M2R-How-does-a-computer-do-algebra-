@@ -11,3 +11,10 @@ z = sn.Symbol('z')
 
 def test_symbol_notation():
     assert x.name == 'x'
+""" PASSED """
+
+def test_addition_symbol_add_symbol():
+    assert (x + y).name == 'x + y'
+
+def test_addition_symbol_add_int():
+    assert (x + 2).name == 'x + 2'
