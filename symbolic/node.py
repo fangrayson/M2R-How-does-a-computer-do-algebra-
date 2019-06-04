@@ -101,8 +101,8 @@ class Symbol(Node):
     priority = 7
     
 class Number(Node):
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, value):
+        self.name = value
     priority = 7
 
         
