@@ -7,6 +7,7 @@ Created on Mon Jun  3 14:00:17 2019
 """
 from numbers import Number
 
+
 class Node: 
     
     def parenthesize(self,other):
@@ -16,52 +17,52 @@ class Node:
             return str(other.name)
 
     def __add__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Add(self,other)
     def __radd__(self,other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Add(self,other)
     
     def __sub__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Sub(self, other)
     def __rsub__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Sub(other, self)
     
     def __mul__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Mul(self, other)
     def __rmul__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Mul(other, self)
     
     def __truediv__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Div(self, other) 
     def __rtruediv__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Div(other, self)
     
     def __pow__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Pow(self, other)
     def __rpow__(self, other):
-        if type(other) == Number:
+        if isinstance(other,Number) == True:
             other=Number(other)
         return Pow(other, self)
     
     def __neg__(self):
-        return Neg(self.name)
+        return Neg(self)
 
 
     
@@ -76,14 +77,15 @@ class BinaryOperator(Node):
     + " " + self.parenthesize(self.operands[1])
 
     
-class UnitaryOperator(Node):
+class UnaryOperator(Node):
     def __init__(self, a):
         self.operands = (a)
+        self.name = self.symbol+self.parenthesize(self.operands[0])
         
     def __str__(self):
-        return self.symbol+str(self.operands[0])
+        return self.symbol+self.parenthesize(self.operands[0])
 
-class Neg(UnitaryOperator):
+class Neg(UnaryOperator):
     symbol = "-"
     priority = 3
     
@@ -91,7 +93,8 @@ class Neg(UnitaryOperator):
 class Symbol(Node):
     def __init__(self, name):
         self.name = name
-    priority = 7    
+    priority = 7
+
         
 class Add(BinaryOperator):
     symbol = '+'
