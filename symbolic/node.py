@@ -22,7 +22,7 @@ class Node:
     def __radd__(self,other):
         if type(other) == int or type(other) == float:
             self.priority = 0
-            return Add(other, self.name)
+            return Add(self.name, other)
         return Add(self.name,other.name)
     
     def __sub__(self, other):
@@ -43,7 +43,7 @@ class Node:
     def __rmul__(self, other):
         if type(other) == int or type(other) == float:
             self.priority = 0
-            return Mul(other, self.name)
+            return Mul(self.name, other)
         return Mul(other, self.name)
     def __truediv__(self, other):
         if type(other) == int or type(other) == float:
