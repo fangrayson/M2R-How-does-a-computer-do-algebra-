@@ -35,6 +35,7 @@ class Node:
             self.priority = 0
             return Sub(other, self.name)
         return Sub(other, self.name)
+    
     def __mul__(self, other):
         if type(other) == int or type(other) == float:
             self.priority = 0
@@ -45,6 +46,7 @@ class Node:
             self.priority = 0
             return Mul(self.name, other)
         return Mul(other, self.name)
+    
     def __truediv__(self, other):
         if type(other) == int or type(other) == float:
             self.priority = 0
@@ -55,6 +57,7 @@ class Node:
             self.priority = 0
             return Div(other, self.name)
         return Div(other, self.name)
+    
     def __pow__(self, other):
         if type(other) == int or type(other) == float:
             self.priority = 0
@@ -64,6 +67,7 @@ class Node:
         if type(other) == int or type(other) == float:
             self.priority = 0
             return Pow(other, self.name)
+        
         return Pow(other, self.name)
     def __neg__(self):
         return Neg(self.name)
