@@ -5,7 +5,7 @@ Created on Mon Jun  3 14:00:17 2019
 
 @author: aishy
 """
-from numbers import Number
+from numbers import Number as Numberclass
 
 
 class Node: 
@@ -17,52 +17,52 @@ class Node:
             return str(other.name)
 
     def __add__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other, Numberclass) == True:
             other=Number(other)
         return Add(self,other)
     
     def __radd__(self,other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Add(self,other)
     
     def __sub__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Sub(self, other)
     
     def __rsub__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Sub(other, self)
     
     def __mul__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Mul(self, other)
     
     def __rmul__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Mul(other, self)
     
     def __truediv__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Div(self, other) 
     
     def __rtruediv__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Div(other, self)
     
     def __pow__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Pow(self, other)
     
     def __rpow__(self, other):
-        if isinstance(other,Number) == True:
+        if isinstance(other,Numberclass) == True:
             other=Number(other)
         return Pow(other, self)
     
@@ -96,6 +96,11 @@ class Neg(UnaryOperator):
     
     
 class Symbol(Node):
+    def __init__(self, name):
+        self.name = name
+    priority = 7
+    
+class Number(Node):
     def __init__(self, name):
         self.name = name
     priority = 7
