@@ -45,7 +45,7 @@ class Node:
     def __rmul__(self, other):
         if isinstance(other,Numberclass) == True:
             other=Number(other)
-        return Mul(other, self)
+        return Mul(self, other)
     
     def __truediv__(self, other):
         if isinstance(other,Numberclass) == True:
@@ -130,7 +130,7 @@ class Div(BinaryOperator):
     
 class Pow(BinaryOperator):
     symbol = "**" 
-    priority = 6
+    priority = 3.5
     
     
 
