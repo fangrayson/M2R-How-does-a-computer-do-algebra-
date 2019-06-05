@@ -12,31 +12,35 @@ def post_traversal(expr,fn):
 
 from functools import singledispatch
 @singledispatch
-def diff(Node,doperands):
+def diff(node,doperands):
+    if (isinstance(node,Symbol)==True and node!=x) or isinstance(node,Numberclass)==True:
+        return 0
+    elif node==x:
+        return 1
     
 
 
     
 @diff.register(Add)
-def _(Node,doperands):
+def _(node,doperands):
     return doperands[0]+doperands[1]
 
 @diff.register(Sub)
-def _(Node,doperands):
+def _(node,doperands):
     return doperands[0]-doperands[1]
 
 @diff.register(Mul)
-def _(Node,doperands):
+def _(node,doperands):
     return doperands[0]*Node.operands[1]+Node.operands[0]*doperands[1]
 
 @diff.register(Div)
-def _(Node,doperands):
+def _(node,doperands):
     return (doperands[0]*Node.operands[1]-Node.operands[0]*doperands[1])/(Node.operands[1]**2)
 
 @diff.register(Pow)
-def _(Node,doperands):
+def _(node,doperands):
     return 
 
 @diff.register(Neg)
-def _(Node,doperands):
+def _(node,doperands):
     return -doperands[0]
