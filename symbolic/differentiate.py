@@ -44,3 +44,12 @@ def _(node,doperands):
 @diff.register(Neg)
 def _(node,doperands):
     return -doperands[0]
+
+@diff.register(Number)
+def _(node, doperands):
+    return 0
+
+@diff.register(Symbol)
+def _(node, doperands):
+    if node == x:
+        return 1
