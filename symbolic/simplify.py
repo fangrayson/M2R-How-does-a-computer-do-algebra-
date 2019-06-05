@@ -1,8 +1,15 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun  5 10:51:36 2019
 
-@author: aishy
-"""
+def post_traversal(expr,fn):
+    return fn(expr,tuple(post_traversal(o,fn) for o in expr.operands))
 
+
+from functools import singledispatch
+@singledispatch
+def simpl(Node,operands):
+    
+
+
+    
+@simpl.register(Add)
+def _(Node,operands):
+    return Node.operands[0]+Node.operands[1]
