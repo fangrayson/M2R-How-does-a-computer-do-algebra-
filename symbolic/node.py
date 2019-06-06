@@ -95,17 +95,24 @@ class UnaryOperator(Node):
 class Neg(UnaryOperator):
     symbol = "-"
     priority = 3
+ 
+    
+class Terminal(Node):
+    def __init__(self):
+        self.operands = ()
+    priority = 7
     
     
-class Symbol(Node):
+    
+class Symbol(Terminal):
     def __init__(self, name):
         self.name = name
-    priority = 7
     
-class Number(Node):
+    
+class Number(Terminal):
     def __init__(self, value):
         self.name = value
-    priority = 7
+    
 
         
 class Add(BinaryOperator):
