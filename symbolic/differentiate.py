@@ -35,7 +35,7 @@ def _(node,doperands):
 
 @diff.register(Pow)
 def _(node,doperands):
-    return 
+    return node.operands[1] * doperands[0] * (node.operands[0]**(node.operands[1]-1))
 
 @diff.register(Neg)
 def _(node,doperands):
