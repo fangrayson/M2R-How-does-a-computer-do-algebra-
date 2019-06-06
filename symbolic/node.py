@@ -115,7 +115,7 @@ class Add(BinaryOperator):
                     
 class Sub(BinaryOperator):
     symbol = "-"
-    priority = 2
+    priority = 1
     
         
 class Mul(BinaryOperator):
@@ -130,7 +130,7 @@ class Div(BinaryOperator):
     
 class Pow(BinaryOperator):
     symbol = "**" 
-    priority = 3.5
+    priority = 6
     
     
 
