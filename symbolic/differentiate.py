@@ -8,6 +8,11 @@ Created on Wed Jun  5 11:31:10 2019
  
 import node as sn
 
+x = sn.Symbol('x')
+y = sn.Symbol('y')
+z = sn.Symbol('z')
+
+
 def diff(expr, symbol):
     return post_traversal(expr, diff_visitor)
     
