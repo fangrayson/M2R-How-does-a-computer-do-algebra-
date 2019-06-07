@@ -98,17 +98,14 @@ class Neg(UnaryOperator):
  
     
 class Terminal(Node):
-    def __init__(self):
-        self.operands = (())
+    operands = (())
     priority = 7
     
     
     
 class Symbol(Terminal):
     def __init__(self, name):
-        self.name = name
-        self.operands = (())
-    
+        self.name = name    
     
 class Number(Terminal):
     def __init__(self, value):
