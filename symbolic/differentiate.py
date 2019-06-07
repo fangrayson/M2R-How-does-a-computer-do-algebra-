@@ -17,9 +17,9 @@ def post_traversal(expr,fn):
 
 from functools import singledispatch
 def diff(expr, symbol):
+    
     @singledispatch
     def diff_visitor(node,doperands):
-        symbol = x
         pass
           
     @diff_visitor.register(sn.Add)
@@ -46,7 +46,7 @@ def diff(expr, symbol):
     def _(node,doperands):
         return -node
     
-    @diff_visitor.register(Number)
+    @diff_visitor.register(sn.Number)
     def _(node, doperands):
         return 'hello'
     
@@ -57,5 +57,5 @@ def diff(expr, symbol):
         else:
             return 0
         
-    return post_traversal(expr, diff_visitor)
+    return str(post_traversal(expr, diff_visitor))
 
