@@ -17,6 +17,8 @@ def post_traversal(expr,fn):
 
 from functools import singledispatch
 def diff(expr, symbol):
+    if isinstance(expr, Numberclass):
+        return 0
     
     @singledispatch
     def diff_visitor(node,doperands):
@@ -46,11 +48,7 @@ def diff(expr, symbol):
     def _(node,doperands):
         return -node
     
-    @diff_visitor.register(sn.Number)
-    def _(node, doperands):
-        return 'hello'
-    
-    @diff_visitor.register(sn.Symbol)
+    @diff_visitor.register(sn.Terminal)
     def _(node, doperands):
         if node == symbol:
             return 1
