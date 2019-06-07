@@ -107,6 +107,7 @@ class Terminal(Node):
 class Symbol(Terminal):
     def __init__(self, name):
         self.name = name
+        self.operands = (())
     
     
 class Number(Terminal):
