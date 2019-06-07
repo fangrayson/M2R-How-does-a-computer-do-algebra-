@@ -105,11 +105,13 @@ class Terminal(Node):
     
 class Symbol(Terminal):
     def __init__(self, name):
-        self.name = name    
+        self.name = name 
+        priority = 7
     
 class Number(Terminal):
     def __init__(self, value):
         self.name = value
+        priority = 8
     
 
         
