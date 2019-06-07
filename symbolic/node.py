@@ -85,11 +85,11 @@ class BinaryOperator(Node):
     
 class UnaryOperator(Node):
     def __init__(self, c):
-        self.operands = c
-        self.name = self.symbol+self.parenthesize(self.operands)
+        self.operands = (c,)
+        self.name = self.symbol+self.parenthesize(self.operands[0])
         
     def __str__(self):
-        return self.symbol+self.parenthesize(self.operands)
+        return self.symbol+self.parenthesize(self.operands[0])
     
 
 class Neg(UnaryOperator):
@@ -99,7 +99,7 @@ class Neg(UnaryOperator):
     
 class Terminal(Node):
     def __init__(self):
-        self.operands = ()
+        self.operands = (())
     priority = 7
     
     
