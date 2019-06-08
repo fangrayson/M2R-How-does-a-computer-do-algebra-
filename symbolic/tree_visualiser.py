@@ -1,16 +1,41 @@
 
+import node as sn
+
 from graphviz import Digraph
 
-dot = Digraph(comment='The Round Table')
-dot
 
-dot.node('A', 'King Arthur')
-dot.node('B', 'Sir Bedevere the Wise')
-dot.node('L', 'Sir Lancelot the Brave')
+x = sn.Symbol('x')
+y = sn.Symbol('y')
+z = sn.Symbol('z')
 
-dot.edges(['AB', 'AL'])
-dot.edge('B', 'L', constraint='false')
+def post_traversal(expr,fn):
+    return fn(expr,tuple(post_traversal(o,fn) for o in expr.operands))
 
-print(dot.source)  # doctest: +NORMALIZE_WHITESPACE
-dot.render('test-output/round-table.gv', view=True)  # doctest: +SKIP
-'test-output/round-table.gv.pdf'
+
+
+from functools import singledispatch
+@singledispatch
+def visitor_function(expr,voperands):
+    dot=Digraph(comment='Abstract Syntax Tree')
+    count=0
+    
+    @visitor_function.register(sn.Operator)
+    def _(expr,child_node_names):
+        count+=1
+        node_name="N%d"%count
+        dot.node(node_name,expr.symbol)
+        for n in child_node_names:
+            dot.edge(node_name,n)
+        return node_name
+    
+    @visitor_function.register(sn.Terminal)
+    def _(expr,child_node_names):
+        node_name=str(expr.name)
+        dot.node(node_name,expr.name)
+        return node_name
+        
+    return dot.source
+        
+        
+        
+    
