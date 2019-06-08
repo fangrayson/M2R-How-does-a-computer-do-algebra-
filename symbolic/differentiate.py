@@ -7,6 +7,7 @@ Created on Wed Jun  5 11:31:10 2019
 """
  
 import node as sn
+import visitor as vi
 
 x = sn.Symbol('x')
 y = sn.Symbol('y')
@@ -55,5 +56,5 @@ def diff(expr, symbol):
         else:
             return 0
         
-    return str(post_traversal(expr, diff_visitor))
+    return vi.post_traversal(expr, diff_visitor)
 
