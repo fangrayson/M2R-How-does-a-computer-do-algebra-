@@ -70,9 +70,11 @@ class Node:
     def __neg__(self):
         return Neg(self)
 
-
+class Operator(Node):
+    pass
     
-class BinaryOperator(Node):
+    
+class BinaryOperator(Operator):
     def __init__(self, a, b):
         self.operands = (a,b)
         self.name = self.parenthesize(self.operands[0]) + " " + self.symbol\
@@ -83,7 +85,7 @@ class BinaryOperator(Node):
     + " " + self.parenthesize(self.operands[1])
 
     
-class UnaryOperator(Node):
+class UnaryOperator(Operator):
     def __init__(self, c):
         self.operands = (c,)
         self.name = self.symbol+self.parenthesize(self.operands[0])
