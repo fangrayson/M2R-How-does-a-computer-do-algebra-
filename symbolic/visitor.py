@@ -1,5 +1,5 @@
 import node as sn #not entirely sure if needed, definitely will be needed later
-
+count = 0
 def post_traversal(expr,fn):
     return fn(expr,tuple(post_traversal(o,fn) for o in expr.operands))
 
