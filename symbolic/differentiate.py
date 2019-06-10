@@ -13,12 +13,9 @@ x = sn.Symbol('x')
 y = sn.Symbol('y')
 z = sn.Symbol('z')
 
-def post_traversal(expr,fn):
-    return fn(expr,tuple(post_traversal(o,fn) for o in expr.operands))
-
 from functools import singledispatch
 def diff(expr, symbol):
-    if isinstance(expr, Numberclass):
+    if isinstance(expr, sn.Numberclass):
         return 0
     
     @singledispatch
