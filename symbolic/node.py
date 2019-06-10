@@ -20,55 +20,98 @@ class Node:
     def __add__(self, other):
         if isinstance(other, Numberclass):
             other=Number(other)
-        return Add(self,other)
+        if other.name == 0:    
+            return self.name
+        else:    
+            return Add(self,other)
     
     def __radd__(self,other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Add(self,other)
+        if other.name == 0:
+            return self.name
+        else:  
+            return Add(self,other)
     
     def __sub__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Sub(self, other)
+        if other.name == 0:    
+            return self.name
+        else:    
+            return Sub(self, other)
     
     def __rsub__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Sub(other, self)
+        if other.name == 0:    
+            return Neg(self)
+        else:
+            return Sub(other, self)
     
     def __mul__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Mul(self, other)
+        if other.name == 0:    
+            return 0
+        elif other.name == 1:
+            return self.name
+        else:
+            return Mul(self, other)
     
     def __rmul__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Mul(self, other)
+        if other.name == 0:    
+            return 0
+        elif other.name == 1:
+            return self.name
+        else:    
+            return Mul(self, other)
     
     def __truediv__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Div(self, other) 
+        if other.name == 0:
+            return 'error: cannot divide by zero'
+        elif other.name == 1:
+            return self.name
+        else:     
+            return Div(self, other) 
     
     def __rtruediv__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Div(other, self)
+        if other.name == 0:    
+            return 0
+        else:
+            return Div(other, self)
     
     def __pow__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Pow(self, other)
+        if other.name == 0:    
+            return 1
+        elif other.name == 1:
+            return self.name
+        else:
+            return Pow(self, other)
     
     def __rpow__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        return Pow(other, self)
+        if other.name == 0:    
+            return 0
+        elif other.name == 1:
+            return 1
+        else:
+            return Pow(other, self)
     
     def __neg__(self):
-        return Neg(self)
+        if self.name == 0:    
+            return 0
+        else:
+            return Neg(self)
 
 class Operator(Node):
     pass
