@@ -15,10 +15,10 @@ dot=Digraph(comment='Abstract Syntax Tree')
 
 from functools import singledispatch
 @singledispatch
-def visitor_function(expr,voperands):
+def tree_visualiser(expr,voperands):
     count=0
     
-    @visitor_function.register(sn.Operator)
+    @tree_visualiser.register(sn.Operator)
     def _(expr,child_node_names):
         count+=1
         node_name="N%d" %count
@@ -27,7 +27,7 @@ def visitor_function(expr,voperands):
             dot.edge(node_name,n)
         return node_name
     
-    @visitor_function.register(sn.Terminal)
+    @tree_visualiser.register(sn.Terminal)
     def _(expr,child_node_names):
         count += 1
         node_name="N%d" %count
