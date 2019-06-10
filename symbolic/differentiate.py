@@ -47,7 +47,7 @@ def diff(expr, symbol):
     
     @diff_visitor.register(sn.Neg)
     def _(node,doperands):
-        return -node
+        return -doperands[0]
     
     @diff_visitor.register(sn.Terminal)
     def _(node, doperands):
