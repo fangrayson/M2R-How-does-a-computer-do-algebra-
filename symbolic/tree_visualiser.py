@@ -6,7 +6,15 @@ x = sn.Symbol('x')
 y = sn.Symbol('y')
 z = sn.Symbol('z')
 
-dot=Digraph(comment='Abstract Syntax Tree')
+'''def high_tree_maker(expr):
+    def tree_maker(expr):
+        dot=Digraph(comment='Abstract Syntax Tree for ' + str(expr))
+        tree = tree_visualiser(expr)
+        #return dot.source
+    print(dot.source)'''
+    #FAILED ATTEMPT TO CREATE A FUNCTION THAT PRINTS OUT THE DIGRAPH CODE
+
+dot = Digraph(comment='Abstract Syntax Tree')
 
 def tree_visualiser(expr):
     vi.count = 0
@@ -22,7 +30,7 @@ def tree_visualiser(expr):
         dot.node(node_name,expr.symbol)
         for n in child_node_names:
             dot.edge(node_name,n)
-            return node_name
+        return node_name
 
     @tree_visitor.register(sn.Terminal)
     def _(expr,child_node_names):
