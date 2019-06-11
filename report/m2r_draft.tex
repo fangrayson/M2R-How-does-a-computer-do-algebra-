@@ -8,13 +8,34 @@
 \usepackage{multirow}
 \usepackage{enumitem}
 \usepackage{relsize}
-\textwidth=18truecm \voffset=-2.7truecm
-\textheight=24truecm \hoffset=-2.5truecm
+\usepackage{anysize}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{titling}
 \author{}
 \title{\textbf{How does a Computer do Algebra?}}
 \date{}
-\usepackage{setspace}
+\marginsize{3cm}{3cm}{1.5cm}{1.5cm}
+\doublespacing
 
 \begin{document}
 \maketitle
+\newpage
+
+
+\textbf{Introduction}\\
+In this project we will trying to understand how a computer performs symbolic algebra. There already exist many packages that do this, such as sympy in Python, however to understand this fully we will be building our own symbolic package from scratch. Due to time constraints, we will only be covering differentiation and some simple simplification.\\
+Firstly we looked at how a computer visualises inputs, in our case mathematical expressions, which it does using abstract syntax trees. Following this we explored various manipulations and functions on the abstract syntax tree and began building our package.
+
+
+
+
+
+
+
+
+
+
 \end{document}
