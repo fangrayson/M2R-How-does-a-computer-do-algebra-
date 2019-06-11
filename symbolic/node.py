@@ -20,7 +20,7 @@ class Node:
     def __add__(self, other):
         if isinstance(other, Numberclass):
             other=Number(other)
-        if other.name == 0:    
+        if other == 0:    
             return self
         else:    
             return Add(self,other)
@@ -28,7 +28,7 @@ class Node:
     def __radd__(self,other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:
+        if other == 0:
             return self
         else:  
             return Add(self,other)
@@ -36,7 +36,7 @@ class Node:
     def __sub__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:    
+        if other == 0:    
             return self
         else:    
             return Sub(self, other)
@@ -44,7 +44,7 @@ class Node:
     def __rsub__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:    
+        if other == 0:    
             return Neg(self)
         else:
             return Sub(other, self)
@@ -52,9 +52,9 @@ class Node:
     def __mul__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:    
+        if other == 0:    
             return other
-        elif other.name == 1:
+        elif other == 1:
             return self
         else:
             return Mul(self, other)
@@ -62,9 +62,9 @@ class Node:
     def __rmul__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:    
+        if other == 0:    
             return other
-        elif other.name == 1:
+        elif other == 1:
             return self
         else:    
             return Mul(self, other)
@@ -72,9 +72,9 @@ class Node:
     def __truediv__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:
+        if other == 0:
             return 'error: cannot divide by zero'
-        elif other.name == 1:
+        elif other == 1:
             return self
         else:     
             return Div(self, other) 
@@ -82,7 +82,7 @@ class Node:
     def __rtruediv__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:    
+        if other == 0:    
             return other
         else:
             return Div(other, self)
@@ -90,9 +90,9 @@ class Node:
     def __pow__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:    
+        if other == 0:    
             return 1
-        elif other.name == 1:
+        elif other == 1:
             return self
         else:
             return Pow(self, other)
@@ -100,15 +100,15 @@ class Node:
     def __rpow__(self, other):
         if isinstance(other,Numberclass):
             other=Number(other)
-        if other.name == 0:    
+        if other == 0:    
             return other
-        elif other.name == 1:
+        elif other == 1:
             return 1
         else:
             return Pow(other, self)
     
     def __neg__(self):
-        if self.name == 0:    
+        if self == 0:    
             return 0
         else:
             return Neg(self)
@@ -149,9 +149,6 @@ class Pos(UnaryOperator):
 class Terminal(Node):
     operands = (())
     priority = 7
-    
-    
-    
     
     
 class Symbol(Terminal):
