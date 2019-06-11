@@ -14,6 +14,15 @@
 \usepackage{graphicx}
 \usepackage{pdfpages}
 \usepackage{titling}
+\usepackage{afterpage}
+
+\newcommand\blankpage{
+    \null
+    \thispagestyle{empty}
+    \addtocounter{page}{-1}
+    \newpage
+    }
+
 \author{}
 \title{\textbf{How does a Computer do Algebra?}}
 \date{}
@@ -21,13 +30,33 @@
 \doublespacing
 
 \begin{document}
+\afterpage{\blankpage}
+
 \maketitle
 \newpage
 
+\afterpage{\blankpage}
+\tableofcontents
 
-\textbf{Introduction}\\
+
+
+\newpage
+
+
+
+
+\section{Introduction}
 In this project we will trying to understand how a computer performs symbolic algebra. There already exist many packages that do this, such as sympy in Python, however to understand this fully we will be building our own symbolic package from scratch. Due to time constraints, we will only be covering differentiation and some simple simplification.\\
 Firstly we looked at how a computer visualises inputs, in our case mathematical expressions, which it does using abstract syntax trees. Following this we explored various manipulations and functions on the abstract syntax tree and began building our package.
+
+
+\section{Magic Methods}
+
+
+
+
+
+
 
 
 
