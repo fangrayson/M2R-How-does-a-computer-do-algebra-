@@ -152,15 +152,30 @@ class Terminal(Node):
     
     
     
+    
+    
 class Symbol(Terminal):
     def __init__(self, name):
         self.name = name 
         priority = 7
+        
+    def __eq__(self,other):
+        if isinstance(other, Symbol) and self.name == other.name:
+            return True
+        else:
+            return False
+        
     
 class Number(Terminal):
     def __init__(self, value):
         self.name = value
         priority = 8
+        
+    def __eq__(self,other):
+        if isinstance(other, Number) and self.name == other.name:
+            return True
+        else:
+            return self.name == other
     
 
         
