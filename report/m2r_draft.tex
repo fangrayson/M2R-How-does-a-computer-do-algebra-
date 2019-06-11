@@ -45,15 +45,17 @@
 
 
 \section{Introduction}
+%Henry
 In this project we will trying to understand how a computer performs symbolic algebra. There already exist many packages that do this, such as sympy in Python, however to understand this fully we will be building our own symbolic package from scratch. Due to time constraints, we will only be covering differentiation and some simple simplification.\\
 Firstly we looked at how a computer visualises inputs, in our case mathematical expressions, which it does using abstract syntax trees. Following this we explored various manipulations and functions on the abstract syntax tree and began building our package.
 
 
 \section{Methods}
+%Lydia
 
 
 \section{Object Oriented Programming \& Package}
-
+%Aishy
 Given the aims of our project, our first step was to simply create a program that would consider the Mathematical expression we inputted and find this as an Abstract Syntax Tree (AST) that can both be displayed for a computer using the function repr() or for human reading it using str(). 
 
 Using Python to help us create the program to do this, we soon discovered Object Oriented Programming (OOP). OOP is a way to construct the relationships between various objects, in our case the nodes of the AST of the expression we have inputted. In our ASTs for each expression we had nodes and edges, through OOP we were able to assign specific properties for each node. These properties included a name, symbol and a priority. Since some nodes shared similar properties we, we were able to group certain objects into classes, where all objects falling in a certain class inherit the same properties. When an object is in an particular class we say it is an instance of the class. We started by creating a package called symbolic within which we created a Python module called node.py, where we stored all of our classes which our objects fall into and the methods associated with them. 
@@ -68,7 +70,19 @@ Within each class we can have magic methods. These are methods which are called 
 
 Now considering the two subclasses of the class Operator, that is BinaryOperator and UnaryOperator, we know that an object within these classes would take operands, hence we initialised each of these classes giving each operands (two and one respectively) and a name. We did this by calling on the magic method \_\_init\_\_. We also defined the method of returning this section of the expression in string form using \_\_str\_\_ for a person to be able to read it as during the process of going through the classes the expression is stored in object form. Although we have to initialise both classes, we could not do this in the parent class Operator since in UnaryOperator and BinaryOperator a different number of operands need to be considered. If we had instead defined it in the parent class it would automatically be inherited by both subclasses and therefore have the wrong number of operands for one of the subclasses. 
 
-Parenthese 
+%%Aishy: Parentheses
+
+
+\section{Differentiation}
+%Fan
+A key part of our project is to observe how a computer implements certain mathematical processes. Importantly, we wanted to see how a computer differentiates analytically. \\
+To do this, we built a module, \texttt{differentiate.py}, that uses our \texttt{node.py} and \texttt{visitor.py} modules we built previously. This module contains a general differentiation function (\texttt{diff}), which takes as its arguments the expression we want to differentiate (\texttt{expr}) and the variable we want to differentiate with respect to (\texttt{symbol}). Here, both arguments are either objects defined by the classes of \texttt{node.py},
+or objects from the class \texttt{Number} (the standard Python class for number objects) which we renamed to \texttt{Numberclass} to avoid confusion.\\
+This function (\texttt{diff}) is a higher order function defined using a single dispatch visitor function \texttt{diff\_visitor} and the \texttt{post\_traversal} function from the visitor module.
+A single dispatch function is a function that acts differently according to the class type of one of its variables. For \texttt{diff\_visitor}, we only care about the class type of the first variable, \texttt{node}.
+We call this function a visitor since it will visit each node in the syntax tree, from the top to the bottom, as defined by \texttt{post\_traversal}, and perform the relevant differentiation rule at that node.
+We do this by adding a register for the different class types that \texttt{node} can be (i.e. Add, Terminal, Neg) and use the various rules of differentiation that we know (i.e. Product, Addition, etc.). 
+
 
 
 
