@@ -16,6 +16,7 @@ class Node:
             return '(' + str(other.name)+ ')'
         else:
             return str(other.name)
+        
 
     def __add__(self, other):
         if isinstance(other, Numberclass):
@@ -149,6 +150,8 @@ class Pos(UnaryOperator):
 class Terminal(Node):
     operands = (())
     priority = 7
+    def __str__(self):
+        return self.name
     
     
 class Symbol(Terminal):
