@@ -21,7 +21,7 @@ class Node:
         if isinstance(other, Numberclass):
             other=Number(other)
         if other.name == 0:    
-            return self.name
+            return self
         else:    
             return Add(self,other)
     
@@ -29,7 +29,7 @@ class Node:
         if isinstance(other,Numberclass):
             other=Number(other)
         if other.name == 0:
-            return self.name
+            return self
         else:  
             return Add(self,other)
     
@@ -37,7 +37,7 @@ class Node:
         if isinstance(other,Numberclass):
             other=Number(other)
         if other.name == 0:    
-            return self.name
+            return self
         else:    
             return Sub(self, other)
     
@@ -53,9 +53,9 @@ class Node:
         if isinstance(other,Numberclass):
             other=Number(other)
         if other.name == 0:    
-            return 0
+            return other
         elif other.name == 1:
-            return self.name
+            return self
         else:
             return Mul(self, other)
     
@@ -63,9 +63,9 @@ class Node:
         if isinstance(other,Numberclass):
             other=Number(other)
         if other.name == 0:    
-            return 0
+            return other
         elif other.name == 1:
-            return self.name
+            return self
         else:    
             return Mul(self, other)
     
@@ -75,7 +75,7 @@ class Node:
         if other.name == 0:
             return 'error: cannot divide by zero'
         elif other.name == 1:
-            return self.name
+            return self
         else:     
             return Div(self, other) 
     
@@ -83,7 +83,7 @@ class Node:
         if isinstance(other,Numberclass):
             other=Number(other)
         if other.name == 0:    
-            return 0
+            return other
         else:
             return Div(other, self)
     
@@ -93,7 +93,7 @@ class Node:
         if other.name == 0:    
             return 1
         elif other.name == 1:
-            return self.name
+            return self
         else:
             return Pow(self, other)
     
@@ -101,7 +101,7 @@ class Node:
         if isinstance(other,Numberclass):
             other=Number(other)
         if other.name == 0:    
-            return 0
+            return other
         elif other.name == 1:
             return 1
         else:
@@ -139,6 +139,10 @@ class UnaryOperator(Operator):
 
 class Neg(UnaryOperator):
     symbol = "-"
+    priority = 3
+    
+class Pos(UnaryOperator):
+    symbol = ""
     priority = 3
  
     
