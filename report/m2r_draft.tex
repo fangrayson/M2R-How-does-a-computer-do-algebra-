@@ -49,6 +49,49 @@
 In this project we will trying to understand how a computer performs symbolic algebra. There already exist many packages that do this, such as sympy in Python, however to understand this fully we will be building our own symbolic package from scratch. Due to time constraints, we will only be covering differentiation and some simple simplification.\\
 Firstly we looked at how a computer visualises inputs, in our case mathematical expressions, which it does using abstract syntax trees. Following this we explored various manipulations and functions on the abstract syntax tree and began building our package.
 
+\section{Abstract Syntax Tree}
+An abstract syntax tree (AST) is a tree representation of the code written in a programming language.\\
+The term abstract is used since the tree is a high level representation of the code, ignoring some details of the code, such as parenthesis or spaces. These details are implicitely represented in the structure of the tree.\\
+The term syntax is used because the tree represention needs to make sense on a syntax level, in this case the orders of the various components of the tree needs to be structurally correct and well defined.\\
+The tree is a special data structure composed of nodes and edges. The top node, can be considered to be the 'trunk' of the tree, and everything else to be the 'branches' of the tree. This top node can also have several child node, which is turn can also have child nodes, and so on. The line segment connecting a node to its child is known as an edge. The trees that we will be looking at will be composed of nodes that are either operator nodes ( +, *,...) or terminals (symbols or numbers). The bottom nodes of the tree will always be terminals, while the rest will always be operator nodes. Operator nodes will always have children, while terminals never do. The operands are the expressions, symbols or number, in our case always 1 or 2, on which the operation is performed. All these terms can be more easely explained using an example.\\
+
+\textbf{Examples:}\\[2mm]
+\noindent
+\begin{minipage}{0.5\textwidth}
+Consider 
+\[y*(2+x)\]
+
+The first thing we node is that the parenthesis from the expression are not represented in the tree, since these are implied by its structure.\\
+The first node is *, an operator node, which has two children: $y$, a terminal, and +, another operator node. The operands of * are $y$ and $(x+2)$. The operator node + also has two child nodes: 2 and $x$, which in this case are also its operands.
+\end{minipage}%
+%
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+\includegraphics[]{/Users/Henry/Documents/Mate/M2Rpictures/Simpleexample.png}
+
+\end{center}
+\end{minipage}\\[2.5mm]
+
+\noindent
+Now, consider
+\[2*x*\text{exp}(z)+(y**2)*\text{sin}(x/3-1)\]
+\begin{center}
+\includegraphics[height=10cm,width=11cm]
+{/Users/Henry/Documents/Mate/M2Rpictures/Complexexample.png}
+
+\end{center}
+Note that the abstract syntax tree is quite complex, although its corresponding expression is relatively simple.\\[2.5mm]
+
+\textbf{Parse Trees}\\
+A parse tree, also known as a concrete syntax tree, is a more detailed version of the abstract syntax tree, in the sense that it represents everything in the code. For example, whereas the abstract syntax tree does not include parenthesis, the parse tree does.\\[2.5mm]
+
+\textbf{Uses of abstract syntax trees}\\
+The main use of abstract syntax trees is in compilers. A compiler is a program that transforms high level code into code that can be read by a computer. This process is know as compiling.
+Often when a compiler begins compiling, it will create an abstract syntax trees from that language. \\[5cm]
+
+
+
+
 
 \section{Methods}
 %Lydia
