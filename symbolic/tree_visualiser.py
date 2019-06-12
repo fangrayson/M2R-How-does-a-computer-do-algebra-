@@ -36,6 +36,15 @@ def tree_visualiser(expr):
         node_name="N%d" %vi.count
         dot.node(node_name,expr.name)
         return node_name
+    
+    @tree_visitor.register(sn.Function)
+    def _(expr,child_node_names):
+        vi.count+=1
+        node_name="N%d" %vi.count
+        dot.node(node_name,expr.symbol)
+        for n in child_node_names:
+            dot.edge(node_name,n)
+        return node_name
     vi.post_traversal(expr, tree_visitor)
     print(dot.source)
     
