@@ -31,7 +31,7 @@ def tree_visualiser(expr):
         if isinstance(expr, sn.Numberclass):
             expr = sn.Symbol(str(expr))
         if isinstance(expr, sn.Number):
-            expr = sn.Symbol(print(expr))
+            expr = sn.Symbol(str(expr))
         vi.count+=1
         node_name="N%d" %vi.count
         dot.node(node_name,expr.name)
