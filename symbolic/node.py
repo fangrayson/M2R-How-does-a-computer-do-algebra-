@@ -13,9 +13,9 @@ class Node:
     
     def parenthesize(self,other):
         if self.priority > other.priority:
-            return '(' + str(other.name)+ ')'
+            return '(' + str(other)+ ')'
         else:
-            return str(other.name)
+            return str(other)
         
 
     def __add__(self, other):
@@ -121,8 +121,6 @@ class Operator(Node):
 class BinaryOperator(Operator):
     def __init__(self, a, b):
         self.operands = (a,b)
-        self.name = self.parenthesize(self.operands[0]) + " " + self.symbol\
-        + " " + self.parenthesize(self.operands[1])
     
     def __str__(self):
         return self.parenthesize(self.operands[0]) + " " + self.symbol\
@@ -132,7 +130,6 @@ class BinaryOperator(Operator):
 class UnaryOperator(Operator):
     def __init__(self, c):
         self.operands = (c,)
-        self.name = self.symbol+self.parenthesize(self.operands[0])
         
     def __str__(self):
         return self.symbol+self.parenthesize(self.operands[0])
@@ -168,16 +165,16 @@ class Symbol(Terminal):
     
 class Number(Terminal):
     def __init__(self, value):
-        self.name = value
+        self.value = value
         priority = 8
         
     def __eq__(self,other):
-        if isinstance(other, Number) and self.name == other.name:
+        if isinstance(other, Number) and self.value == other.value:
             return True
         else:
-            return self.name == other
+            return self.value == other
     def __str__(self):
-        return str(self.name)
+        return str(self.value)
     
 
         
