@@ -53,5 +53,21 @@ def diff(expr, symbol):
         else:
             return 0
         
+    @diff_visitor.register(Log)
+    def _(node, doperands):
+        return doperands[0] / node.operands[0]
+    
+    @diff_visitor.register(Exp)
+    def _(node, doperands):
+        return doperands[0] * node
+    
+    @diff_visitor.register(Sin)
+    def _(node, doperands):
+        return doperands[0] * cos(node.operands[0])
+    
+    @diff_visitor.register(Cos)
+    def _(node, doperands):
+        return doperands[0] * sin(node.operands[0])
+        
     return vi.post_traversal(expr, diff_visitor)
 

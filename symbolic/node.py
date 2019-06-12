@@ -202,6 +202,35 @@ class Pow(BinaryOperator):
     symbol = "**" 
     priority = 6
     
+class Function(Operator):
+    operands = (())
+    def __init__(self, operand):
+        self.operands = (operand,)
+    def __str__(self):
+        return self.symbol + '(' + str(self.operands[0]) + ')'
+    def __log__(a):
+        return Log(a)
+class Log(Function):
+    symbol = "log"
+    priority = 3
+class Exp(Function):
+    symbol = "exp"
+    priority = 3
+class Sin(Function):
+    symbol = "sin"
+    priority = 3
+class Cos(Function):
+    symbol = "cos"
+    priority = 3
+    
+def log(a):
+    return Log(a)
+def exp(a):
+    return Exp(a)
+def sin(a):
+    return Sin(a)
+def cos(a):
+    return Cos(a)
     
 
 x = Symbol('x')
