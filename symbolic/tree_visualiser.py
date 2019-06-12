@@ -8,6 +8,8 @@ z = sn.Symbol('z')
 
 
 def tree_visualiser(expr):
+    if isinstance(expr, sn.Numberclass):
+        expr = sn.Symbol(str(expr))
     dot = Digraph(comment='Abstract Syntax Tree')
     vi.count = 0
     from functools import singledispatch
@@ -26,6 +28,10 @@ def tree_visualiser(expr):
 
     @tree_visitor.register(sn.Terminal)
     def _(expr,child_node_names):
+        if isinstance(expr, sn.Numberclass):
+            expr = sn.Symbol(str(expr))
+        if isinstance(expr, sn.Number):
+            expr = sn.Symbol(print(expr))
         vi.count+=1
         node_name="N%d" %vi.count
         dot.node(node_name,expr.name)
