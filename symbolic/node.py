@@ -176,6 +176,8 @@ class Number(Terminal):
             return True
         else:
             return self.name == other
+    def __str__(self):
+        return str(self.name)
     
 
         
