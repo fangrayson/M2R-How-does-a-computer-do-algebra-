@@ -5,6 +5,10 @@ from graphviz import Digraph
 x = sn.Symbol('x')
 y = sn.Symbol('y')
 z = sn.Symbol('z')
+sin = sn.sin
+cos = sn.cos
+log = sn.log
+exp = sn.exp
 
 
 def tree_visualiser(expr):
