@@ -204,7 +204,7 @@ class Pow(BinaryOperator):
     symbol = "**" 
     priority = 6
     
-class Function(Operator):
+class Function(UnaryOperator):
     operands = (())
     def __init__(self, operand):
         self.operands = (operand,)
