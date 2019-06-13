@@ -147,14 +147,16 @@ class Pos(UnaryOperator):
 class Terminal(Node):
     operands = (())
     priority = 7
-    def __str__(self):
-        return self.name
+    
     
     
 class Symbol(Terminal):
     def __init__(self, name):
         self.name = name 
         priority = 7
+    
+    def __str__(self):
+        return self.name
         
     def __eq__(self,other):
         if isinstance(other, Symbol) and self.name == other.name:
