@@ -12,6 +12,10 @@ import visitor as vi
 x = sn.Symbol('x')
 y = sn.Symbol('y')
 z = sn.Symbol('z')
+sin = sn.sin
+cos = sn.cos
+log = sn.log
+exp = sn.exp
 
 from functools import singledispatch
 def diff(expr, symbol):
