@@ -44,7 +44,7 @@ def diff(expr, symbol):
     
     @diff_visitor.register(sn.Pow)
     def _(node,doperands):
-        return node.operands[1] * doperands[0] * (node.operands[0]**(node.operands[1]-1))
+        return node.operands[1] * doperands[0] * (node.operands[0]**(node.operands[1]-1)) + doperands[1] * sn.log(node.operands[0]) * (node.operands[0]**node.operands[1])
     
     @diff_visitor.register(sn.Neg)
     def _(node,doperands):
